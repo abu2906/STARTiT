@@ -5,10 +5,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<link rel='stylesheet' href='../css/app.css' >
-	<link href="../css/fontawesome/css/all.css" rel="stylesheet" />
-    <link href="../css/fontawesome/css/solid.css" rel="stylesheet" />
-	<script src="../js/jquery-3.7.1.js"></script>
+	<link rel='stylesheet' href="{{ asset('css/app.css') }}" >
+	<link href="{{ asset('css/fontawesome/css/all.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/fontawesome/css/solid.css') }}" rel="stylesheet" />
+	<script src="{{ asset('js/jquery-3.7.1.js') }}"></script>
 	<title>STARTiT</title>
 </head>
 <body>
@@ -16,9 +16,13 @@
 	@include('component.Navbar')
 
 	<!-- SIDEBAR -->
+<<<<<<< HEAD
 	<section id="sidebar">
 		
 	</section>
+=======
+	@include('component.sidebar')
+>>>>>>> 6be2e779cd30913a43995d03ecf5f5a8e967e2ad
 	<!-- SIDEBAR -->
 
 	<!-- CONTENT -->

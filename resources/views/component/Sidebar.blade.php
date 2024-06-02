@@ -1,4 +1,5 @@
-<a href="#" class="brand">
+<section id="sidebar">
+		<a href="#" class="brand">
 			<i class='bx bxs-laugh'></i>
 			<span class="text">STARTiT</span>
 		</a>
@@ -48,3 +49,4 @@
 				</a>
 			</li>
 		</ul>
+	</section>
