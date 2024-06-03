@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="fontawesome/css/all.css" rel="stylesheet" />
-    <link href="fontawesome/css/solid.css" rel="stylesheet" />
-	<link rel="stylesheet" href="style2.css">
-	<title>Document</title>
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel='stylesheet' href='../css/style.css' >
+	<link href="../css/fontawesome/css/all.css" rel="stylesheet" />
+    <link href="../css/fontawesome/css/solid.css" rel="stylesheet" />
+	<script src="../js/jquery-3.7.1.js"></script>
+	<title>Profile</title>
 </head>
 <body>
 	<div class="container">

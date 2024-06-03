@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-// Route::get('/home', function () {
-//     return view('home');
-// });
+Route::get('/Login', function () {
+    return view('LogAndReg');
+});
+
+Route::get('/seller', function () {
+    return view('seller');
+});

@@ -13,7 +13,7 @@
 			<li id="button-usaha">
 				<a href="#">
 					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">Business</span>
+					<span class="text">Manajemen Layanan</span>
 				</a>
 			</li>
 			<li id="button-analytics">
