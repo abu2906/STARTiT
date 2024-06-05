@@ -1,15 +1,12 @@
 <?php
-
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/Login', function () {
+Route::get('/login', function () {
     return view('LogAndReg');
 });
 
-Route::get('/seller', function () {
-    return view('seller');
-});
+Route::get('/profile', [ProfileController::class, 'show']);

@@ -1,12 +1,12 @@
-@extends('views.home')
+@extends('resources\views.home')
 
 @section('content')
 <div class="head-title">
     <div class="left">
-        <h1>Home</h1>
+        <h1>Dashboard</h1>
         <ul class="breadcrumb">
             <li>
-                <a href="#">Home</a>
+                <a href="#">Dashboard</a>
             </li>
             <li><i class='bx bx-chevron-right' ></i></li>
             <li>
