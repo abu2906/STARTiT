@@ -6,6 +6,19 @@
 	box-sizing: border-box;
 }
 
+/* Cek dukungan untuk sintaks baru */
+@supports (selector(:state(webkit-scrollbar))) {
+	/* Gaya baru jika didukung */
+	:state(webkit-scrollbar) {
+		/* Gaya scrollbar */
+	}
+} else {
+	/* Gaya lama jika tidak didukung */
+	::-webkit-scrollbar {
+		/* Gaya scrollbar */
+	}
+}
+
 a {
 	text-decoration: none;
 }
@@ -45,7 +58,6 @@ body {
 	background: var(--grey);
 	overflow-x: hidden;
 }
-
 
 /* SIDEBAR */
 #sidebar {
@@ -156,10 +168,6 @@ body {
 }
 /* SIDEBAR */
 
-
-
-
-
 /* CONTENT */
 #content {
 	position: relative;
@@ -171,10 +179,6 @@ body {
 	width: calc(100% - 60px);
 	left: 60px;
 }
-
-
-
-
 /* NAVBAR */
 #content nav {
 	height: 56px;
@@ -187,7 +191,7 @@ body {
 	position: sticky;
 	top: 0;
 	left: 0;
-	z-index: 1000;
+	/* z-index: 1000; */
 }
 #content nav::before {
 	content: '';
@@ -299,10 +303,6 @@ body {
 }
 /* NAVBAR */
 
-
-
-
-
 /* MAIN */
 #content main {
 	width: 100%;
@@ -353,9 +353,6 @@ body {
 	font-weight: 500;
 }
 
-
-
-
 #content main .box-info {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -399,11 +396,6 @@ body {
 #content main .box-info li .text p {
 	color: var(--dark);	
 }
-
-
-
-
-
 #content main .table {
 	display: flex;
 	flex-wrap: wrap;
@@ -432,7 +424,6 @@ body {
 #content main .table .head .bx {
 	cursor: pointer;
 }
-
 #content main .table .order {
 	flex-grow: 1;
 	flex-basis: 500px;

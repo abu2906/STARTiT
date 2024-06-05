@@ -5,8 +5,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/login', function () {
-    return view('LogAndReg');
+Route::get('/home', function () {
+    return view('home');
 });
 
-Route::get('/profile', [ProfileController::class, 'show']);
+Route::get('/profile', function () {
+    return view('profile');
+});
