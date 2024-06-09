@@ -11,31 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
         });
     }
-
-    // Notification button
-    // document.querySelector('.notification').addEventListener('click', function(e) {
-    //     e.preventDefault();
-    //     fetch('Notification.html')
-    //         .then(response => response.text())
-    //         .then(data => {
-    //             document.querySelector('.main-content').innerHTML = data;
-    //         });
-    // });
-
-    // // Close notification popup when close button is clicked
-    // document.querySelector('#notificationPopup .popup-close').addEventListener('click', function() {
-    //     document.querySelector('#notificationPopup').style.display = 'none';
-    // });
-
     // Side menu
-    document.querySelectorAll('#sidebar .side-menu.top li a').forEach(function(item) {
-        item.addEventListener('click', function() {
-            document.querySelectorAll('#sidebar .side-menu.top li').forEach(function(li) {
-                li.classList.remove('active');
-            });
-            item.parentNode.classList.add('active');
-        });
-    });
+
+    document.querySelector('#sidebar').classList.add('hide');
 
     // Toggle sidebar
     document.querySelector('#content nav .bx.bx-menu').addEventListener('click', function() {
@@ -82,4 +60,20 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.remove('dark');
         }
     });
+
+    const notificationIcon = document.querySelector('.notification');
+    const dropdown = document.querySelector('.notification-dropdown');
+
+    // Menampilkan dropdown ketika ikon notifikasi di-hover
+    notificationIcon.addEventListener('mouseenter', function() {
+        dropdown.style.display = 'block';
+    });
+
+    // Menyembunyikan dropdown ketika mouse meninggalkan ikon notifikasi
+    notificationIcon.addEventListener('mouseleave', function() {
+        dropdown.style.display = 'none';
+    });
+
+
+    
 });

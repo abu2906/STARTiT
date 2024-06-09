@@ -18,40 +18,22 @@
                 <span class="text">STARTiT</span>
             </a>
             <ul class="side-menu top">
-                <li id="button-dashboard" class="active">
-                    <a href="#">
+                <li id="button-dashboard" class="{{ Request::is('/') ? 'active' : '' }}">
+                    <a href="{{ url('/') }}">
                         <i class='bx bxs-dashboard' ></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
-                <li id="button-usaha">
-                    <a href="#">
-                        <i class='bx bxs-shopping-bag-alt' ></i>
-                        <span class="text">Business</span>
-                    </a>
-                </li>
-                <li id="button-analytics">
-                    <a href="#">
-                        <i class='bx bxs-doughnut-chart' ></i>
-                        <span class="text">Analytics</span>
-                    </a>
-                </li>
-                <li id="button-message">
-                    <a href="#">
-                        <i class='bx bxs-message-dots' ></i>
-                        <span class="text">Message</span>
-                    </a>
-                </li>
-                <li id="button-trend">
-                    <a href="#">
+                <li id="button-poin" class="{{ Request::is('awards') ? 'active' : '' }}">
+                    <a href="{{ url('/awards') }}">
                         <i class='bx bx-trending-up' ></i>
-                        <span class="text">Trend Pasar</span>
+                        <span class="text">Awards</span>
                     </a>
                 </li>
             </ul>
-            <ul class="side-menu">
-                <li id="button-setting">
-                    <a href="">
+            <ul class="side-menu top">
+                <li id="button-setting" class="{{ Request::is('settings') ? 'active' : '' }}">
+                    <a href="{{ url('/setting') }}">
                         <i class='bx bxs-cog' ></i>
                         <span class="text">Settings</span>
                     </a>
@@ -70,7 +52,19 @@
             <!-- NAVBAR -->
             <nav>
                 <i class='bx bx-menu' ></i>
-                <a href="#" class="nav-link">Categories</a>
+                @php
+                    $path = Request::path();
+                    $pageName = 'Dashboard'; 
+
+                    if ($path === '/') {
+                        $pageName = 'Home';
+                    } elseif ($path === 'awards') {
+                        $pageName = 'Awards';
+                    } elseif ($path === 'setting') {
+                        $pageName = 'Settings';
+                    }
+                @endphp
+                <a href="#" class="nav-link">{{ $pageName }}</a>
                 <form action="#">
                     <div class="form-input">
                         <input type="search" placeholder="Search...">
@@ -79,9 +73,23 @@
                 </form>
                 <input type="checkbox" id="switch-mode" hidden>
                 <label for="switch-mode" class="switch-mode"></label>
-                <a href="Notification.html" class="notification">
-                    <i class='bx bxs-bell' ></i>
+                <a href="{{ url('/notifikasi') }}" class="notification">
+                    <i class='bx bxs-bell'></i>
                     <span class="num">8</span>
+                    <div class="notification-dropdown" style="display: none;">
+                        <div class="notification-item">
+                            <span class="notification-text">Pesanan baru diterima</span>
+                            <span class="notification-time">5 menit yang lalu</span>
+                        </div>
+                        <div class="notification-item">
+                            <span class="notification-text">Pembayaran telah dikonfirmasi</span>
+                            <span class="notification-time">10 menit yang lalu</span>
+                        </div>
+                        <div class="notification-item">
+                            <span class="notification-text">Ulasan baru ditambahkan</span>
+                            <span class="notification-time">1 jam yang lalu</span>
+                        </div>
+                    </div>
                 </a>
                 <a href="{{ url('/profile') }}" class="profile" id="button-profile">
                     <img src="img/profile.png">
