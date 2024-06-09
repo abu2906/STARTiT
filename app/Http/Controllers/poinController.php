@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class poinController extends Controller
 {
     public function show()
     {
-        return view('profile');
+        return view('awards');
     }
 }
-
-

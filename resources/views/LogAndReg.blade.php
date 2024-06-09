@@ -23,10 +23,10 @@
 					<i class="fa-solid fa-lock"></i>
 					<input type="text" placeholder="Password">
 				</div>
-				<div class="remember-forgot">
+				<!-- <div class="remember-forgot">
                     <label><input type="checkbox">Remember me</label>
                     <a href="#">Forgot password?</a>
-                </div>
+                </div> -->
 				<input type="submit" value="Login" class="btn">
 				<p class="choice">Or Sign in with</p>
 				<div class="social-media">

@@ -36,7 +36,7 @@ body{
     height: 80vh;
     background: #fff;
     border-radius: 15px;
-    box-shadow: 0 4px 20px 0 var(--light-blue),0 6px 20px 0 var(--blue);
+    box-shadow: 0 4px 20px 0 var(--blue),0 6px 20px 0 var(--blue);
     overflow: hidden;
 }
 
