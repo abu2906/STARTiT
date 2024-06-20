@@ -30,10 +30,10 @@
                         <span class="text">Awards</span>
                     </a>
                 </li>
-                <li id="button-ulasan" class="{{ Request::is('rating') ? 'active' : '' }}">
-                    <a href="{{ url('/rating') }}">
+                <li id="button-ulasan" class="{{ Request::is('ulasan') ? 'active' : '' }}">
+                    <a href="{{ url('/ulasan') }}">
                         <i class='bx bx-message' ></i>
-                        <span class="text">Rating</span>
+                        <span class="text">Ulasan</span>
                     </a>
                 </li>
             </ul>
@@ -66,8 +66,8 @@
                         $pageName = 'Home';
                     } elseif ($path === 'awards') {
                         $pageName = 'Awards';
-                    } elseif ($path === 'rating') {
-                        $pageName = 'Rating';
+                    } elseif ($path === 'ulasan') {
+                        $pageName = 'Ulasan';
                     } elseif ($path === 'setting') {
                         $pageName = 'Settings';
                     }
@@ -106,6 +106,10 @@
             <!-- MAIN -->
             <main class="main-content">
                 @yield('main-content')
+
+                <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
             </main>
 
         </section>

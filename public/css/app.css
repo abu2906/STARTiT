@@ -492,6 +492,39 @@ body {
     color: #666;
 }
 
+#content main .container .check-in-reward {
+    margin-top: 20px;
+}
+
+#content main .container .check-in-reward table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#content main .container .check-in-reward th, .check-in-reward td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#content main .container tr td .claim-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#content main .container tr td .claim-button:hover {
+    background-color: #45a049;
+}
+
+#content main .container tr td .claim-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 /* REWARD */
 
 /* PROFILE */
@@ -597,9 +630,13 @@ body {
 	font-weight: 500;
 }
 
+#content main .table-data .todo .button-profile .btn-profile:hover{
+	background: var(--dark-grey);
+}
+
 /* PROFILE */
 
-/* POPUP */
+/* POPUP NOTIFIKASI*/
 #content nav .notification .notification-dropdown {
     position:fixed;
     top: 40px;
@@ -641,7 +678,7 @@ body {
     font-size: 12px;
     color: var(--dark-grey);
 }
-/* POPUP */
+/* POPUP NOTIFIKASI*/
 
 /* NOTIFICATION */
 .list-group-item {
@@ -729,6 +766,227 @@ body {
 #content main .settings-container .settings-section button:hover {
     background-color: var(--dark-grey);
 }
+
+/* TAMBAH PEKERJAAN */
+#content main .gigs-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#content main .existing-jobs, .job-add-form {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background-color: var(--light);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#content main .existing-jobs h2, .job-add-form h2 {
+    color: var(--dark);
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#content main .existing-jobs table {
+    width: 100%;
+    border-collapse: unset;
+}
+
+#content main .existing-jobs th, .existing-jobs td {
+    border: 1px solid var(--dark-grey);
+    padding: 8px;
+    text-align: center;
+	color: var(--dark);
+}
+
+#content main .existing-jobs th {
+    background-color: var(--dark-grey);
+	color: var(--dark);
+}
+
+#content main .existing-jobs tr:nth-child(odd) {
+    background-color: var(--light);
+}
+
+#content main .existing-jobs tr:nth-child(even) {
+    background-color: var(--grey);
+}
+
+#content main .existing-jobs tr:hover {
+    background-color: var(--grey);
+}
+
+#content main .job-add-form .form-group {
+    margin-bottom: 15px;
+}
+
+#content main .job-add-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+	color: var(--dark);
+}
+
+#content main .job-add-form .form-group input[type="text"],
+#content main #editJobModal .form-group input[type="text"],
+#content main .job-add-form .form-group textarea,
+#content main #editJobModal .form-group textarea,
+#content main .job-add-form .form-group select,
+#content main #editJobModal .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--grey);
+    border-radius: 4px;
+}
+
+#content main .job-add-form .form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#content main .btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--blue);
+    color: var(--light);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#content main .btn-submit:hover {
+    background-color: var(--dark-grey);
+}
+
+/* TAMBAH PEKERJAAN */
+
+/* POPUP EDIT */
+#content main #editJobModal{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: var(--grey);
+    padding: 20px;
+    box-shadow: 0 4px 6px var(--dark) (0, 0, 0, 0.1);
+    z-index: 1050;
+    display: none;
+	color: var(--dark);
+	border-radius: 15px;
+}
+
+#content main #editJobModal button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    color: var(--light);
+    background-color: var(--blue);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#content main #editJobModal button[type="button"] {
+    background-color: var(--red);
+}
+
+#content main #editJobModal button:hover {
+    opacity: 0.9;
+}
+/* POPUP EDIT */
+
+/* ULASAN */
+#content main .reviews {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--light);
+    border-radius: 8px;
+}
+
+#content main .reviews .review-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--light);
+    border: 1px solid var(--light);
+    border-radius: 5px;
+}
+
+#content main .reviews .review-item .reviewer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#content main .reviews .review-item .reviewer img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+#content main .reviews .review-item .reviewer .reviewer-details {
+    display: block;
+}
+
+#content main .reviews .review-item .reviewer .reviewer-details .name {
+    font-weight: bold;
+    font-size: 16px;
+	color: var(--dark);
+}
+
+#content main .reviews .review-item .reviewer .reviewer-details .category {
+    font-size: 14px;
+    color: var(--dark-grey);
+    margin-top: 2px;
+}
+
+#content main .reviews .review-item .review-content{
+	position: relative;
+	padding: 15px;
+}
+
+#content main .reviews .review-item .review-content p {
+    font-size: 14px;
+    color: var(--dark-grey);
+    margin-bottom: 5px;
+}
+
+#content main .reviews .review-item .review-content a{
+	position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    color: var(--dark-grey);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	font-size: smaller;
+}
+
+/* ULASAN */
+
+/* RATING 2 */
+#content main .tab-content {
+    display: none;
+}
+
+#content main .tab-content .active {
+    display: block;
+}
+
+#content main .tab {
+	justify-content: center;
+    cursor: pointer;
+	display: inline-block;
+}
+
+/* RATING 2 */
+
+
 /* MAIN */
 /* CONTENT */
 

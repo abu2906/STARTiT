@@ -47,7 +47,7 @@
 				</li>
 				<li>
 					<span class="text">
-						<h3>Carned</h3>
+						<h3>Earned</h3>
 						<p>Blablabla</p>
 					</span>
 				</li>
@@ -63,7 +63,7 @@
 				<i class="fa-solid fa-phone"></i>
 					<span class="text">Contact Me</span>
 				</a>
-				<a href="#" class="btn-profile">
+				<a href="{{ url('/TambahPekerjaan') }}" class="btn-profile">
 					<i class='fa-solid fa-plus'></i>
 					<span class="text">Gigs</span>
 				</a>

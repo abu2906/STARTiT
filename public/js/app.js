@@ -53,11 +53,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Dark mode switch
-    document.querySelector('#switch-mode').addEventListener('change', function() {
+    const switchModeCheckbox = document.getElementById('switch-mode');
+    const bodyElement = document.body;
+
+    // Cek local storage untuk mode saat ini dan update checkbox
+    const currentMode = localStorage.getItem('darkMode');
+    if (currentMode === 'enabled') {
+        bodyElement.classList.add('dark');
+        switchModeCheckbox.checked = true;
+    }
+
+    // Event listener untuk checkbox
+    switchModeCheckbox.addEventListener('change', function () {
         if (this.checked) {
-            document.body.classList.add('dark');
+            bodyElement.classList.add('dark');
+            localStorage.setItem('darkMode', 'enabled');
         } else {
-            document.body.classList.remove('dark');
+            bodyElement.classList.remove('dark');
+            localStorage.setItem('darkMode', 'disabled');
         }
     });
 
@@ -74,6 +87,33 @@ document.addEventListener('DOMContentLoaded', function() {
         dropdown.style.display = 'none';
     });
 
+    var editButtons = document.querySelectorAll('.editPekerjaBtn');
+    var modal = document.getElementById('editJobModal');
 
+    editButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Menghentikan perilaku default link
+            modal.style.display = 'block'; // Menampilkan modal
+        });
+    });
+
+    // Opsional: Menambahkan fungsi untuk menutup modal jika diperlukan
+    var closeModalButton = document.getElementById('closeModalButton');
+    if (closeModalButton) {
+        closeModalButton.addEventListener('click', function() {
+            modal.style.display = 'none'; // Menyembunyikan modal
+        });
+    }
+
+    function changeTab(index) {
+        // Menghilangkan kelas 'active' dari semua tab dan konten
+        var tabs = document.querySelectorAll('.tab');
+        var contents = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        contents.forEach(content => content.classList.remove('active'));
     
+        // Menambahkan kelas 'active' pada tab dan konten yang dipilih
+        tabs[index].classList.add('active');
+        contents[index].classList.add('active');
+    }
 });
