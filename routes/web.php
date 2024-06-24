@@ -26,3 +26,18 @@ Route::get('/setting', function() {
 Route::get('/login', function() {
     return view('LogAndReg');
 });
+
+Route::get('/TambahPekerjaan', function() {
+    return view('TambahPekerjaan');
+});
+
+Route::get('/Edit', function() {
+    return view('Edit');
+});
+
+Route::get('/ulasan', function() {
+    return view('ulasan');
+});
+Route::get('/rating', function() {
+    return view('rating');
+});
