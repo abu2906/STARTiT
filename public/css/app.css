@@ -206,7 +206,8 @@ body {
 #content nav a {
 	color: var(--dark);
 }
-#content nav .bx.bx-menu {
+#content nav .bx.bx-menu,
+#content nav .bx.bxs-message{
 	cursor: pointer;
 	color: var(--dark);
 }
@@ -302,6 +303,7 @@ body {
 #content nav #switch-mode:checked + .switch-mode::before {
 	left: calc(100% - (25px - 4px) - 2px);
 }
+
 /* NAVBAR */
 
 /* MAIN */
@@ -438,30 +440,29 @@ body {
     text-align: center;
 }
 
-#content main .container .header {
+#content main .header {
     margin-bottom: 20px;
+	background-color: var(--light);
 }
 
-#content main .container .header h1 {
+#content main .header h1 {
     margin: 0;
     font-size: 24px;
-    color: #333;
+    color: var(--dark);
 }
 
-#content main .container .header .points-display p {
+#content main .header .points-display p {
     margin: 0;
     font-size: 18px;
     color: #666;
 }
 
-#content main  .container .rewards {
+#content main  .rewards {
     display: flex;
     justify-content: space-between;
 }
 
-#content main .container .rewards .reward-item {
-	position: relative;
-	z-index: 1;
+#content main .rewards .reward-item {
 	transition: transform 0.3s ease;
     width: 30%;
     background-color: #fafafa;
@@ -470,59 +471,26 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     text-align: center;
 }
-#content main .container .rewards .reward-item:hover {
+#content main .rewards .reward-item:hover {
     transform: scale(1.1);
     z-index: 10;
 }
 
-#content main .container .rewards .reward-item img {
+#content main .rewards .reward-item img {
     width: 100px;
     height: 100px;
     margin-bottom: 10px;
 }
 
-#content main .container .rewards .reward-item h2 {
+#content main .rewards .reward-item h2 {
     font-size: 18px;
     color: #333;
     margin: 10px 0;
 }
 
-#content main .container .rewards .reward-item p {
+#content main .rewards .reward-item p {
     font-size: 16px;
     color: #666;
-}
-
-#content main .container .check-in-reward {
-    margin-top: 20px;
-}
-
-#content main .container .check-in-reward table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#content main .container .check-in-reward th, .check-in-reward td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-#content main .container tr td .claim-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-#content main .container tr td .claim-button:hover {
-    background-color: #45a049;
-}
-
-#content main .container tr td .claim-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
 }
 
 /* REWARD */
@@ -646,11 +614,7 @@ body {
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     border-radius: 8px;
 	cursor: pointer;
-    z-index: 1001;
-}
-
-#content nav .notification .notification-dropdown:hover {
-    display: block;
+    z-index: 9999;
 }
 
 #content nav .notification .notification-item {
@@ -866,7 +830,9 @@ body {
 /* TAMBAH PEKERJAAN */
 
 /* POPUP EDIT */
-#content main #editJobModal{
+#content main #editJobModal,
+#content main #userModal
+{
 	position: absolute;
     top: 50%;
     left: 50%;
@@ -983,8 +949,461 @@ body {
     cursor: pointer;
 	display: inline-block;
 }
-
 /* RATING 2 */
+
+/* DASHBOARD ADMIN */
+#content main {
+	width: 100%;
+	padding: 36px 24px;
+	font-family: var(--poppins);
+	max-height: calc(100vh - 56px);
+	overflow-y: auto;
+}
+#content main .head-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	grid-gap: 16px;
+	flex-wrap: wrap;
+}
+#content main .head-title .left h1 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: var(--dark);
+}
+#content main .head-title .left .breadcrumb {
+	display: flex;
+	align-items: center;
+	grid-gap: 16px;
+}
+#content main .head-title .left .breadcrumb li {
+	color: var(--dark);
+}
+#content main .head-title .left .breadcrumb li a {
+	color: var(--dark-grey);
+	pointer-events: none;
+}
+#content main .head-title .left .breadcrumb li a.active {
+	color: var(--blue);
+	pointer-events: unset;
+}
+
+#content main .box-info {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	grid-gap: 24px;
+	margin-top: 36px;
+}
+#content main .box-info li {
+	padding: 24px;
+	background: var(--light);
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	grid-gap: 24px;
+}
+#content main .box-info li .bx {
+	width: 80px;
+	height: 80px;
+	border-radius: 10px;
+	font-size: 36px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#content main .box-info li:nth-child(1) .bx {
+	background: var(--light-blue);
+	color: var(--blue);
+}
+#content main .box-info li:nth-child(2) .bx {
+	background: var(--light-yellow);
+	color: var(--yellow);
+}
+#content main .box-info li:nth-child(3) .bx {
+	background: var(--light-orange);
+	color: var(--orange);
+}
+#content main .box-info li .text h3 {
+	font-size: 24px;
+	font-weight: 600;
+	color: var(--dark);
+}
+#content main .box-info li .text p {
+	color: var(--dark);	
+}
+
+
+#content main .table-data {
+	display: flex;
+	flex-wrap: wrap;
+	grid-gap: 24px;
+	margin-top: 24px;
+	width: 100%;
+	color: var(--dark);
+}
+#content main .table-data > div {
+	border-radius: 20px;
+	background: var(--light);
+	padding: 24px;
+	overflow-x: auto;
+}
+#content main .table-data .head {
+	display: flex;
+	align-items: center;
+	grid-gap: 16px;
+	margin-bottom: 24px;
+}
+#content main .table-data .head h3 {
+	margin-right: auto;
+	font-size: 24px;
+	font-weight: 600;
+}
+#content main .table-data .head .bx {
+	cursor: pointer;
+}
+
+#content main .table-data .order {
+	flex-grow: 1;
+	flex-basis: 500px;
+}
+#content main .table-data .order table {
+	width: 100%;
+	border-collapse: collapse;
+}
+#content main table th {
+	padding-bottom: 12px;
+	font-size: 13px;
+	text-align: center;
+	border-bottom: 1px solid var(--grey);
+}
+#content main table td {
+	padding: 16px 0;
+}
+#content main table tr {
+	text-align: center;
+}
+#content main table tr td:first-child {
+	display: flex;
+	align-items: center;
+	grid-gap: 12px;
+	padding-left: 6px;
+}
+
+#content main table tbody tr:hover {
+	background: var(--grey);
+}
+#content main .table-data .todo {
+	flex-grow: 1;
+	flex-basis: 350px;
+}
+
+
+.todo table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.todo th, .todo td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.todo td{
+	font-size: small;
+}
+
+.todo th {
+    background-color: #f2f2f2;
+}
+
+.todo tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.todo tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* DASHBOARD ADMIN */
+
+
+/* SETTING ADMIN */
+
+.container_adm {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--light);
+    box-shadow: 0 0 10px var(--dark);
+}
+
+.container_adm header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container_adm header h1 {
+    font-size: 2em;
+    color: var(--dark);
+}
+
+.container_adm header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.container_adm header nav a {
+    text-decoration: none;
+    color: var(--blue);
+}
+
+.container_adm header nav a:hover {
+    text-decoration: underline;
+}
+
+.container_adm main section {
+    margin-bottom: 40px;
+}
+
+.container_adm main section h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.container_adm main section form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.container_adm main section form input, 
+.container_adm main section form select, 
+.container_adm main section form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1em;
+}
+
+.container_adm main section form button {
+    width: auto;
+    background-color: var(--blue);
+    color: var(--light);
+    border: none;
+	border-radius: 6px;
+    cursor: pointer;
+}
+
+.container_adm main section form button:hover {
+    background-color: var(--light-blue);
+}
+.container_adm main section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.container_adm main section table th, 
+.container_adm main section table td {
+    padding: 10px;
+    border: 1px solid var(--light);
+    text-align: left;
+}
+.container_adm main section table th {
+    background-color: var(--light);
+}
+
+.container_adm main section table td {
+    background-color: var(--light);
+}
+
+.container_adm main section button {
+    padding: 10px;
+    background-color: var(--dark-grey);
+    color: var(--light);
+	border-radius: 7px;
+    border: none;
+    cursor: pointer;
+}
+
+.container_adm main section button:hover {
+    background-color: var(--grey);
+	color: var(--dark);
+}
+/* SETTING ADMIN */
+
+/* MESSAGE */
+.container-message {
+	display: flex;
+	height: 80vh;
+	color: var(--dark);
+}
+.sidebar-message {
+	width: 30%;
+	background-color: var(--light);
+	border-right: 1px solid var(--light);
+	overflow-y: auto;
+	border-radius: 10px 0 0 10px;
+}
+.chat-list {
+	list-style-type: none;
+	padding: 0;
+}
+.chat-list li {
+	padding: 15px;
+	border-bottom: 1px solid var(--light);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.chat-list li:hover {
+	background-color: var(--light);
+	cursor: pointer;
+}
+.chat-list .chat-details {
+	display: flex;
+	flex-direction: column;
+}
+.chat-list .chat-details .chat-name {
+	font-weight: 500;
+
+}
+.chat-list .chat-details .chat-message {
+	color: var(--dark-grey);
+	font-size: 0.9em;
+}
+
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+	width: 95%;
+}
+
+.chat-header {
+	height: 4rem;
+    background-color: var(--light);
+    border-bottom: 1px solid var(--light);
+    display: flex;
+	border-radius: 0 10px 0 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header-details h3{
+	margin-left: 2rem;
+	font-weight: 400;
+}
+.chat-header-icons {
+    display: flex;
+    gap: 10px;
+	margin-right: 2rem;
+}
+
+.chat-footer {
+	display: flex;
+	align-items: center;
+	height: 2.5rem;
+    background-color: var(--light);
+    border-top: 2px solid var(--grey);
+	border-radius: 0 0 10px 0;
+}
+
+.chat-footer input {
+    flex: 1;
+    border: none;
+    padding: 8px;
+	color: var(--light);
+}
+
+.btn-send {
+    background: transparent;
+    border: none;
+	color: var(--dark);
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.chat-footer input:focus {
+    outline: none;
+}
+.search-bar {
+    margin-bottom: 20px;
+	text-align: center;
+	margin: 1rem;
+	display: flex;
+}
+
+.search-bar input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.search-bar input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+/* MESSAGE */
+
+
+
+
+/* POPUP DETAIL */
+.container-detail {
+	border: 1px solid #ccc;
+	padding: 20px;
+	border-radius: 10px;
+	max-width: 600px;
+	margin: 0 auto;
+}
+.header-detail {
+	text-align: center;
+	margin-bottom: 20px;
+}
+.header-detail h4 {
+	text-align: center;
+	margin: 0;
+	font-weight: normal;
+}
+.info, .requirements, .responsibilities {
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+
+.requirements .kualifikasi{
+	display: flex;
+}
+.button-container {
+	text-align: center;
+}
+.button-container button {
+	background-color: #007bff;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.button-container button:hover {
+	background-color: #0056b3;
+}
+
+
 
 
 /* MAIN */

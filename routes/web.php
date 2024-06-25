@@ -3,8 +3,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\poinController;
 use App\Http\Controllers\notificationController;
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('home');
+});
+
+Route::get('/home2', function () {
+    return view('home2');
 });
 
 Route::get('/profile', function () {
@@ -23,7 +27,7 @@ Route::get('/setting', function() {
     return view('setting');
 });
 
-Route::get('/login', function() {
+Route::get('/', function() {
     return view('LogAndReg');
 });
 
@@ -39,5 +43,20 @@ Route::get('/ulasan', function() {
     return view('ulasan');
 });
 Route::get('/rating', function() {
-    return view('rating');
+    return view('Rating');
+});
+Route::get('/dashboard', function() {
+    return view('Dashboard');
+});
+Route::get('/layanan', function() {
+    return view('Layanan');
+});
+Route::get('/verifikasi', function() {
+    return view('VerifikasiPembayaran');
+});
+Route::get('/set-adm', function() {
+    return view('SetAdmin');
+});
+Route::get('/message', function() {
+    return view('Message');
 });

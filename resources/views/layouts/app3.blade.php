@@ -18,7 +18,7 @@
                 <span class="text">STARTiT</span>
             </a>
             <ul class="side-menu top">
-                <li id="button-dashboard" class="{{ Request::is('home') ? 'active' : '' }}">
+                <li id="button-dashboard" class="{{ Request::is('home2') ? 'active' : '' }}">
                     <a href="{{ url('/home') }}">
                         <i class='bx bxs-dashboard' ></i>
                         <span class="text">Home</span>
@@ -30,8 +30,8 @@
                         <span class="text">Awards</span>
                     </a>
                 </li>
-                <li id="button-ulasan" class="{{ Request::is('ulasan') ? 'active' : '' }}">
-                    <a href="{{ url('/ulasan') }}">
+                <li id="button-ulasan" class="{{ Request::is('rating') ? 'active' : '' }}">
+                    <a href="{{ url('/rating') }}">
                         <i class='bx bx-message' ></i>
                         <span class="text">Rating</span>
                     </a>
@@ -62,12 +62,12 @@
                     $path = Request::path();
                     $pageName = 'Dashboard'; 
 
-                    if ($path === 'home') {
+                    if ($path === 'home2') {
                         $pageName = 'Home';
                     } elseif ($path === 'awards') {
                         $pageName = 'Awards';
-                    } elseif ($path === 'ulasan') {
-                        $pageName = 'Ulasan';
+                    } elseif ($path === 'rating') {
+                        $pageName = 'Rating';
                     } elseif ($path === 'setting') {
                         $pageName = 'Settings';
                     } elseif ($path === 'message') {

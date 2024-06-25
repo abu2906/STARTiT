@@ -1,20 +1,6 @@
 @extends('layouts.app')
 
 @section('main-content')
-	<div class="head-title">
-		<div class="left">
-			<h1>Home</h1>
-			<ul class="breadcrumb">
-				<li>
-					<a href="#">Home</a>
-				</li>
-				<li><i class='bx bx-chevron-right' ></i></li>
-				<li>
-					<a class="active" href="#">Profile</a>
-				</li>
-			</ul>
-		</div>
-	</div>
 	<div class="table-data">
 		<div class="todo">
 			<div class="detail">
