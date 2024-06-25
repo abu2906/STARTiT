@@ -13,7 +13,7 @@ class HomePageTest extends TestCase
      */
     public function test_example(): void
     {
-        $response = $this->get('/rating');
+        $response = $this->get('/home2');
         $response->assertStatus(200);
     }
 }

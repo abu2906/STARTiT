@@ -18,28 +18,28 @@
                 <span class="text">STARTiT</span>
             </a>
             <ul class="side-menu top">
-                <li id="button-dashboard" class="{{ Request::is('/') ? 'active' : '' }}">
-                    <a href="{{ url('/') }}">
+                <li id="button-dashboard" class="{{ Request::is('dashboard') ? 'active' : '' }}">
+                    <a href="{{ url('/dashboard') }}">
                         <i class='bx bxs-dashboard' ></i>
-                        <span class="text">Home</span>
+                        <span class="text">Dashboard</span>
                     </a>
                 </li>
-                <li id="button-poin" class="{{ Request::is('awards') ? 'active' : '' }}">
-                    <a href="{{ url('/awards') }}">
+                <li id="button-poin" class="{{ Request::is('layanan') ? 'active' : '' }}">
+                    <a href="{{ url('/layanan') }}">
                         <i class='bx bx-trending-up' ></i>
-                        <span class="text">Awards</span>
+                        <span class="text">Layanan Pengguna</span>
                     </a>
                 </li>
-                <li id="button-ulasan" class="{{ Request::is('ulasan') ? 'active' : '' }}">
-                    <a href="{{ url('/ulasan') }}">
+                <li id="button-ulasan" class="{{ Request::is('verifikasi') ? 'active' : '' }}">
+                    <a href="{{ url('/verifikasi') }}">
                         <i class='bx bx-message' ></i>
-                        <span class="text">Ulasan</span>
+                        <span class="text">Verifikasi Pembayaran</span>
                     </a>
                 </li>
             </ul>
             <ul class="side-menu top">
-                <li id="button-setting" class="{{ Request::is('settings') ? 'active' : '' }}">
-                    <a href="{{ url('/setting') }}">
+                <li id="button-setting" class="{{ Request::is('set_adm') ? 'active' : '' }}">
+                    <a href="{{ url('/set-adm') }}">
                         <i class='bx bxs-cog' ></i>
                         <span class="text">Settings</span>
                     </a>
@@ -62,13 +62,13 @@
                     $path = Request::path();
                     $pageName = 'Dashboard'; 
 
-                    if ($path === '/') {
-                        $pageName = 'Home';
-                    } elseif ($path === 'awards') {
-                        $pageName = 'Awards';
-                    } elseif ($path === 'ulasan') {
-                        $pageName = 'Ulasan';
-                    } elseif ($path === 'setting') {
+                    if ($path === 'dashboard') {
+                        $pageName = 'Dashboard';
+                    } elseif ($path === 'layanan') {
+                        $pageName = 'Layanan';
+                    } elseif ($path === 'verifikasi') {
+                        $pageName = 'Verifikasi Pembayaran';
+                    } elseif ($path === 'set-adm') {
                         $pageName = 'Settings';
                     }
                 @endphp
@@ -81,24 +81,6 @@
                 </form>
                 <input type="checkbox" id="switch-mode" hidden>
                 <label for="switch-mode" class="switch-mode"></label>
-                <a href="{{ url('/notifikasi') }}" class="notification">
-                    <i class='bx bxs-bell'></i>
-                    <span class="num">8</span>
-                    <div class="notification-dropdown" style="display: none;">
-                        <div class="notification-item">
-                            <span class="notification-text">Pesanan baru diterima</span>
-                            <span class="notification-time">5 menit yang lalu</span>
-                        </div>
-                        <div class="notification-item">
-                            <span class="notification-text">Pembayaran telah dikonfirmasi</span>
-                            <span class="notification-time">10 menit yang lalu</span>
-                        </div>
-                        <div class="notification-item">
-                            <span class="notification-text">Ulasan baru ditambahkan</span>
-                            <span class="notification-time">1 jam yang lalu</span>
-                        </div>
-                    </div>
-                </a>
                 <a href="{{ url('/profile') }}" class="profile" id="button-profile">
                     <img src="img/profile.png">
                 </a>
@@ -108,8 +90,8 @@
                 @yield('main-content')
 
                 <!-- jQuery and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
             </main>
 
         </section>

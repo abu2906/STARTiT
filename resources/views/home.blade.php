@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
-@section('main-content')
-<div class="head-title">
-	<div class="left">
-		<h1>Home</h1>
-	</div>
-</div>
-            
+@section('main-content')       
 <div class="job-listings">
 	<div class="job-listing">
 			<img src="{{ asset('img/art.jpeg') }}" alt="">
@@ -70,6 +64,7 @@
 		</div>
 	</div>
 </div>
-        
+
+
 @endsection
 
