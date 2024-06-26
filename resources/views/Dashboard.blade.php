@@ -144,13 +144,4 @@
         </table>            
     </div>
 </div>
-
-<form id="userModal">
-    <h2>Informasi Pengguna</h2>
-    <span>Nama      : St. Nur Aisyah. S</span>
-    <span>Usia      : 19th</span>
-    <span>Alamat    : Majennang Pinrang</span>
-    <span>Pekerjaan : Mahasiswa</span>
-    <button type="button" id="closeModalButton">Verifikasi</button>
-</form>
 @endsection

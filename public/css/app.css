@@ -831,20 +831,22 @@ body {
 
 /* POPUP EDIT */
 #content main #editJobModal,
-#content main #userModal
+#content main #home-modal,
+#content main #rekrutModal
 {
 	position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50%;
-    background-color: var(--grey);
+    background-color: var(--light);
     padding: 20px;
     box-shadow: 0 4px 6px var(--dark) (0, 0, 0, 0.1);
     z-index: 1050;
     display: none;
 	color: var(--dark);
 	border-radius: 15px;
+	border: 2px solid var(--dark);
 }
 
 #content main #editJobModal button {
@@ -1364,21 +1366,25 @@ body {
 
 
 /* POPUP DETAIL */
-.container-detail {
-	border: 1px solid #ccc;
+#content main .container-detail,
+#content main .home-modal {
+	background-color: var(--light);
+	border: 1px solid var(--dark);
 	padding: 20px;
 	border-radius: 10px;
 	max-width: 600px;
 	margin: 0 auto;
 }
-.header-detail {
+#content main .container-detail .header-detail,
+#content main .home-modal .header-detail {
 	text-align: center;
 	margin-bottom: 20px;
 }
-.header-detail h4 {
+#content main .container-detail .header-detail h4,
+#content main .home-modal .header-detail h4 {
 	text-align: center;
 	margin: 0;
-	font-weight: normal;
+	font-weight: bolder;
 }
 .info, .requirements, .responsibilities {
 	margin-bottom: 10px;
@@ -1392,6 +1398,7 @@ body {
 	text-align: center;
 }
 .button-container button {
+	width: 30%;
 	background-color: #007bff;
 	color: white;
 	padding: 10px 20px;
