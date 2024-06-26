@@ -22,11 +22,18 @@ class AuthController extends Controller
 
         $data = [
             'username'=>$request->username,
-            'password'=>$request->password
+            'password'=>$request->password,
         ];
 
         if(Auth::attempt($data)){
-            return redirect()->route('home');
+            $user = Auth::user(); 
+            if($user->tipePengguna == 'penyewa'){ 
+                return redirect()->route('penyewa-home');
+            } elseif ($user->tipePengguna=='admin') {
+                return redirect()->route('admin-dashboard');
+            };
+
+            return redirect()->route('pekerja-home');
         }else{
             return redirect()->route('login')->with('failed','Login Ulang bre, keknya salah deh');
         };
@@ -38,6 +45,7 @@ class AuthController extends Controller
             'username'=>'required',
             'email'=>'required|email',
             'telepon'=>'required',
+            'tipePengguna'=>'required',
             'password'=>'required',
         ]);
 
@@ -49,6 +57,7 @@ class AuthController extends Controller
         $data['email']=$request->email;
         $data['telepon']=$request->telepon;
         $data['password']=Hash::make($request->password);
+        $data['tipePengguna']=$request->tipePengguna;
 
         User::create($data);
         return redirect()->route('login');

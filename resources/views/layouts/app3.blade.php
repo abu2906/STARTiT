@@ -13,12 +13,12 @@
     <body>
         <!-- SIDEBAR -->
 		<section id="sidebar">
-            <a href="{{ route('penyewa-home') }}" class="brand">
+            <a href="#" class="brand">
                 <i class='bx bxs-laugh'></i>
                 <span class="text">STARTiT</span>
             </a>
             <ul class="side-menu top">
-                <li id="button-dashboard" class="{{ Request::is('home') ? 'active' : '' }}">
+                <li id="button-dashboard" class="{{ Request::is('home2') ? 'active' : '' }}">
                     <a href="{{ url('/home') }}">
                         <i class='bx bxs-dashboard' ></i>
                         <span class="text">Home</span>
@@ -30,8 +30,8 @@
                         <span class="text">Awards</span>
                     </a>
                 </li>
-                <li id="button-ulasan" class="{{ Request::is('ulasan') ? 'active' : '' }}">
-                    <a href="{{ url('/ulasan') }}">
+                <li id="button-ulasan" class="{{ Request::is('rating') ? 'active' : '' }}">
+                    <a href="{{ url('/rating') }}">
                         <i class='bx bx-message' ></i>
                         <span class="text">Rating</span>
                     </a>
@@ -60,19 +60,23 @@
                 <i class='bx bx-menu' ></i>
                 @php
                     $path = Request::path();
-                    $pageName = ''; 
-                    $pagePath = '';
+                    $pageName = 'Dashboard'; 
 
-                        if (strpos($path, 'admin') !== false) {
-                            $pageName = 'ADMIN';
-                            $pagePath = strtolower($pageName);
-                        } elseif (strpos($path, 'Pekerja') !== false) {
-                            $pageName = 'PEKERJA';
-                            $pagePath = strtolower($pageName);
-                        } elseif (strpos($path, 'Penyewa') !== false) {
-                            $pageName = 'PENYEWA';
-                            $pagePath = strtolower($pageName);
-                        }
+                    if ($path === 'home2') {
+                        $pageName = 'Home';
+                    } elseif ($path === 'awards') {
+                        $pageName = 'Awards';
+                    } elseif ($path === 'rating') {
+                        $pageName = 'Rating';
+                    } elseif ($path === 'setting') {
+                        $pageName = 'Settings';
+                    } elseif ($path === 'message') {
+                        $pageName = 'Message';
+                    } elseif ($path === 'notifikasi') {
+                        $pageName = 'Notification';
+                    } elseif ($path === 'profile') {
+                        $pageName = 'Profile';
+                    }
                 @endphp
                 <a href="#" class="nav-link">{{ $pageName }}</a>
                 <form action="#">
@@ -104,7 +108,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ route('penyewa-profile') }}" class="profile {{ Request::is('penyewa-profile') ? 'active' : '' }}" id="button-profile">
+                <a href="{{ url('/profile') }}" class="profile {{ Request::is('profile') ? 'active' : '' }}" id="button-profile">
                     <img src="img/profile.png">
                 </a>
             </nav>

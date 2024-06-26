@@ -75,6 +75,17 @@
                         <small>Masukkan password Terlebih Dahulu</small>
                     @enderror
                 </div>
+                <div class="input-field">
+                    <!-- <i class="fa-solid fa-lock"></i> -->
+                    <select name="tipePengguna" id="option" class="input-field">
+                        <option value="penyewa">Penyewa</option>
+                        <option value="pekerja">Pekerja</option>
+                        <option value="admin">admin</option>
+                    </select>               
+                    @error('option')
+                        <small>Masukkan password Terlebih Dahulu</small>
+                    @enderror
+                </div>
 
                 <input type="submit" value="Sign up" class="btn">
             </form>
