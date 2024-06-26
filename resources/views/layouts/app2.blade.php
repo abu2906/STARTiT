@@ -19,7 +19,7 @@
             </a>
             <ul class="side-menu top">
                 <li id="button-dashboard" class="{{ Request::is('dashboard') ? 'active' : '' }}">
-                    <a href="{{ url('/dashboard') }}">
+                    <a href="{{ route('admin-dashboard') }}">
                         <i class='bx bxs-dashboard' ></i>
                         <span class="text">Dashboard</span>
                     </a>

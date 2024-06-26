@@ -62,9 +62,6 @@
 		<p>Deskripsi pekerjaan</p>
 		<button class="apply-btn">Detail</button>
 	</div>
-	</div>
 </div>
-
-
 @endsection
 
