@@ -1,3 +1,15 @@
+@php
+    $path = Request::path();
+    $pageName = ''; 
+
+    if (strpos($path, 'admin') !== false) {
+        $pageName = 'Dashboard';
+    } elseif (strpos($path, 'pekerja') !== false) {
+        $pageName = 'Pekerja';
+    } elseif (strpos($path, 'penyewa') !== false) {
+        $pageName = 'Penyewa';
+    }
+@endphp
 <nav>
     <i class='bx bx-menu' ></i>
     <a href="#" class="nav-link">Categories</a>
