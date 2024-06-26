@@ -1326,7 +1326,7 @@ body {
     flex: 1;
     border: none;
     padding: 8px;
-	color: var(--light);
+	color: var(--dark);
 }
 
 .btn-send {

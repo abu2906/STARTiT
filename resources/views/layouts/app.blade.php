@@ -13,7 +13,7 @@
     <body>
         <!-- SIDEBAR -->
 		<section id="sidebar">
-            <a href="#" class="brand">
+            <a href="{{ route('penyewa-home') }}" class="brand">
                 <i class='bx bxs-laugh'></i>
                 <span class="text">STARTiT</span>
             </a>
@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li id="button-logout">
-                    <a href="logout.php" class="logout">
+                    <a href="{{ route('logout') }}" class="logout">
                         <i class='bx bxs-log-out-circle' ></i>
                         <span class="text">Logout</span>
                     </a>
@@ -60,23 +60,19 @@
                 <i class='bx bx-menu' ></i>
                 @php
                     $path = Request::path();
-                    $pageName = 'Dashboard'; 
+                    $pageName = ''; 
+                    $pagePath = '';
 
-                    if ($path === 'home') {
-                        $pageName = 'Home';
-                    } elseif ($path === 'awards') {
-                        $pageName = 'Awards';
-                    } elseif ($path === 'ulasan') {
-                        $pageName = 'Ulasan';
-                    } elseif ($path === 'setting') {
-                        $pageName = 'Settings';
-                    } elseif ($path === 'message') {
-                        $pageName = 'Message';
-                    } elseif ($path === 'notifikasi') {
-                        $pageName = 'Notification';
-                    } elseif ($path === 'profile') {
-                        $pageName = 'Profile';
-                    }
+                        if (strpos($path, 'admin') !== false) {
+                            $pageName = 'ADMIN';
+                            $pagePath = strtolower($pageName);
+                        } elseif (strpos($path, 'Pekerja') !== false) {
+                            $pageName = 'PEKERJA';
+                            $pagePath = strtolower($pageName);
+                        } elseif (strpos($path, 'Penyewa') !== false) {
+                            $pageName = 'PENYEWA';
+                            $pagePath = strtolower($pageName);
+                        }
                 @endphp
                 <a href="#" class="nav-link">{{ $pageName }}</a>
                 <form action="#">
@@ -108,7 +104,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ url('/profile') }}" class="profile {{ Request::is('profile') ? 'active' : '' }}" id="button-profile">
+                <a href="{{ route('penyewa-profile') }}" class="profile {{ Request::is('penyewa-profile') ? 'active' : '' }}" id="button-profile">
                     <img src="img/profile.png">
                 </a>
             </nav>

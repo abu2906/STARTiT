@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('main-content')
+	@if(isset($user))
 	<div class="table-data">
 		<div class="todo">
 			<div class="detail">
@@ -8,14 +9,14 @@
 					<img src="{{ asset('img/profile.png') }}">
 					<div class="info">
 						<div class="nama">
-							<span><strong>St. Nur Aisyah. S</strong></span>
+							<span><strong>{{ $user->username }}</strong></span>
 							<a href="">
 								<i class="fa-solid fa-pencil"></i>
 							</a>
 						</div>
 						<i class="fa-solid fa-location-dot"></i>
 						<span>Jakarta</span>
-						<p>Skil: Desain Grafis, Pengembangan Web</p>
+						<p>{{ $user->email }}</p>
 					</div>
 				</div>
 				<div class="rating">
@@ -49,11 +50,12 @@
 				<i class="fa-solid fa-phone"></i>
 					<span class="text">Contact Me</span>
 				</a>
-				<a href="{{ url('/TambahPekerjaan') }}" class="btn-profile">
+				<a href="{{ route('pekerja-tambah') }}" class="btn-profile">
 					<i class='fa-solid fa-plus'></i>
 					<span class="text">Gigs</span>
 				</a>
 			</div>
 		</div>
 	</div>
+	@endif
 @endsection
