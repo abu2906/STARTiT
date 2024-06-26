@@ -10,23 +10,18 @@ use App\Http\Controllers\PekerjaController;
 Route::get('/home2', function () {
     return view('home2');
 });
-
 Route::get('/notifikasi', function () {
     return view('notifikasi');
 });
-
 Route::get('/awards', function() {
     return view('awards');
 });
-
 Route::get('/setting', function() {
     return view('setting');
 });
-
 Route::get('/Edit', function() {
     return view('Edit');
 });
-
 Route::get('/ulasan', function() {
     return view('ulasan');
 });
