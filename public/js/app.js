@@ -115,38 +115,5 @@ document.addEventListener('DOMContentLoaded', function() {
         // Menambahkan kelas 'active' pada tab dan konten yang dipilih
         tabs[index].classList.add('active');
         contents[index].classList.add('active');
-    }    
-
-    var detailsButtons = document.querySelectorAll('.apply-btn');
-    var home_modal = document.getElementById('home-modal');
-
-    detailsButtons.forEach(function(button) {
-        button.addEventListener('click', function(event) {
-            event.preventDefault(); // Menghentikan perilaku default link
-            home_modal.style.display = 'block'; // Menampilkan modal
-        });
-    });
-    var closeModal = document.getElementById('close-modal');
-    if (closeModal) {
-        closeModal.addEventListener('click', function() {
-            home_modal.style.display = 'none'; // Menyembunyikan modal
-        });
-    }
-
-    var rekrutButtons = document.querySelectorAll('.rekrut');
-    var rekrut_modal = document.getElementById('rekrutModal');
-
-    rekrutButtons.forEach(function(button) {
-        button.addEventListener('click', function(event) {
-            event.preventDefault();
-            home_modal.style.display = 'none';// Menghentikan perilaku default link
-            rekrut_modal.style.display = 'block'; // Menampilkan modal
-        });
-    });
-    var closeModalRek = document.getElementById('closeModal');
-    if (closeModalRek) {
-        closeModalRek.addEventListener('click', function() {
-            rekrut_modal.style.display = 'none'; // Menyembunyikan modal
-        });
-    }
+    }  
 });

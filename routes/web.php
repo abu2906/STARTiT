@@ -7,7 +7,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PekerjaController;
 
 
-Route::get('/home2', function () {
+Route::get('/home', function () {
+    return view('home');
+});
+Route::get('/home', function () {
     return view('home2');
 });
 Route::get('/notifikasi', function () {
@@ -51,5 +54,6 @@ Route::get('/penyewa/home', [HomeController::class,'HomePenyewa'])->name('penyew
 Route::get('/pekerja/home', [HomeController::class,'HomePekerja'])->name('pekerja-home');
 Route::get('/pekerja/tambahPekerja', [PekerjaController::class,'TambahKerja'])->name('pekerja-tambah');
 Route::get('/penyewa/profile',[HomeController::class,'showProfile'])->name('penyewa-profile');
+Route::get('/pekerja/profile',[HomeController::class,'showProfile'])->name('penyewa-profile');
 
 Route::get('/admin/dahsboard', [HomeController::class,'AdminDashboard'])->name('admin-dashboard');
