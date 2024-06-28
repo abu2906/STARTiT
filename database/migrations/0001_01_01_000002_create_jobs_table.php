@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('idPekerja');
             $table->string('kategori');
             $table->string('deskripsi');
-            $table->int('harga');
+            $table->integer('harga');
             $table->unsignedInteger('created_at');
         });
 

@@ -10,10 +10,14 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function HomePekerja(){
-        $user = auth()->user();
-        return view('Profile.pekerja_profile',compact('user'));
+    public function HomePekerja() {
+        return view('home2');
     }
+
+    // public function HomePekerja(){
+    //     $user = auth()->user();
+    //     return view('Profile.pekerja_profile',compact('user'));
+    // }
 
     public function AdminDashboard(){
         return view('Dashboard');
