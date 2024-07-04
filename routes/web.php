@@ -5,14 +5,9 @@ use App\Http\Controllers\notificationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PekerjaController;
+use App\Http\Controllers\NotifikasiController;
+use App\Http\Controllers\MessageController;
 
-
-Route::get('/home', function () {
-    return view('home');
-});
-Route::get('/home', function () {
-    return view('home2');
-});
 Route::get('/notifikasi', function () {
     return view('notifikasi');
 });
@@ -53,7 +48,10 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 Route::get('/penyewa/home', [HomeController::class,'HomePenyewa'])->name('penyewa-home');
 Route::get('/pekerja/home', [HomeController::class,'HomePekerja'])->name('pekerja-home');
 Route::get('/pekerja/tambahPekerja', [PekerjaController::class,'TambahKerja'])->name('pekerja-tambah');
-Route::get('/penyewa/profile',[HomeController::class,'showProfile'])->name('penyewa-profile');
-Route::get('/pekerja/profile',[HomeController::class,'showProfile'])->name('penyewa-profile');
+Route::get('/penyewa/profile',[ProfileController::class,'penyewaProfile'])->name('penyewa-profile');
+Route::get('/pekerja/profile',[ProfileController::class,'pekerjaProfile'])->name('pekerja-profile');
+
+Route::get('/notifikasi',[NotifikasiController::class,'notifikasi'])->name('notifikasi');
+Route::get('/message',[MessageController::class,'message'])->name('message');
 
 Route::get('/admin/dahsboard', [HomeController::class,'AdminDashboard'])->name('admin-dashboard');

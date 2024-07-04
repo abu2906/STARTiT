@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel='stylesheet' href='{{ asset("css/style.css") }}'>
-    <link href="{{ asset("css/fontawesome/css/all.css") }}" rel="stylesheet">
-    <link href="{{ asset("css/fontawesome/css/solid.css") }}" rel="stylesheet">
+    <link href='{{ asset("css/fontawesome/css/all.css") }}' rel="stylesheet">
+    <link href='{{ asset("css/fontawesome/css/solid.css") }}' rel="stylesheet">
     <title>Autentikasi</title>
 </head>
 <body>
@@ -80,7 +80,6 @@
                     <select name="tipePengguna" id="option" class="input-field">
                         <option value="penyewa">Penyewa</option>
                         <option value="pekerja">Pekerja</option>
-                        <option value="admin">admin</option>
                     </select>               
                     @error('option')
                         <small>Masukkan password Terlebih Dahulu</small>
