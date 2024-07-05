@@ -16,25 +16,23 @@ class PekerjaController extends Controller
         // Ambil pekerjaan yang dimiliki oleh pengguna tersebut
         $jobs = Job::where('user_id', $userId)->get();
 
-        return view('jobs.index', ['jobs' => $jobs]);
+        return view('TambahPekerjaan', ['jobs' => $jobs]);
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'job_title' => 'required',
-            'job_description' => 'required',
-            'job_category' => 'required',
-            'job_location' => 'required',
+            'kategori' => 'required',
+            'deskripsi' => 'required',
+            'harga' => 'required',
         ]);
 
         // Simpan pekerjaan baru ke dalam database
         Job::create([
             'user_id' => auth()->id(), // ID pengguna yang sedang login
-            'job_title' => $request->job_title,
-            'job_description' => $request->job_description,
-            'job_category' => $request->job_category,
-            'job_location' => $request->job_location,
+            'kategori' => $request->kategori,
+            'deskripsi' => $request->deskripsi,
+            'harga' => $request->harga,
         ]);
 
         return redirect()->back()->with('success', 'Pekerjaan berhasil ditambahkan');
@@ -43,10 +41,9 @@ class PekerjaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'job_title' => 'required',
-            'job_description' => 'required',
-            'job_category' => 'required',
-            'job_location' => 'required',
+            'kategori' => 'required',
+            'deskripsi' => 'required',
+            'harga' => 'required',
         ]);
 
         // Cari pekerjaan berdasarkan ID
@@ -54,10 +51,9 @@ class PekerjaController extends Controller
 
         // Perbarui data pekerjaan
         $job->update([
-            'job_title' => $request->job_title,
-            'job_description' => $request->job_description,
-            'job_category' => $request->job_category,
-            'job_location' => $request->job_location,
+            'kategori' => $request->kategori,
+            'deskripsi' => $request->deskripsi,
+            'harga' => $request->harga,
         ]);
 
         return redirect()->back()->with('success', 'Pekerjaan berhasil diperbarui');

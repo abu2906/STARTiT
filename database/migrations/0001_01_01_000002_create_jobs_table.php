@@ -6,14 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->string('idPekerja')->constrained('users')->onDelete('cascade');
+            $table->string('user_id')->constrained('users')->onDelete('cascade');
             $table->string('kategori');
             $table->string('deskripsi');
             $table->integer('harga');
@@ -39,9 +36,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('jobs');
