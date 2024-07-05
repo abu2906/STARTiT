@@ -64,3 +64,68 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+Untuk menjalankan proyek Laravel setelah melakukan cloning dari GitHub, berikut langkah-langkahnya:
+
+Prasyarat
+Pastikan Anda telah menginstal Composer: Composer digunakan untuk mengelola dependensi PHP, termasuk Laravel. Pastikan Composer terinstal di komputer Anda. Anda bisa mengunduhnya dan menginstalnya dari getcomposer.org.
+
+Pastikan telah menginstal PHP: Laravel memerlukan PHP diinstal di komputer Anda. Pastikan versi PHP yang Anda gunakan sesuai dengan persyaratan Laravel.
+
+Langkah-langkah untuk Menjalankan Proyek Laravel
+Clone Repository dari GitHub:
+
+bash
+Salin kode
+git clone <URL_repository_github>
+Ganti <URL_repository_github> dengan URL repository GitHub yang ingin Anda clone.
+
+Masuk ke Direktori Proyek:
+
+bash
+Salin kode
+cd <nama_folder_proyek>
+Ganti <nama_folder_proyek> dengan nama folder hasil dari proses cloning.
+
+Instal Dependensi menggunakan Composer:
+
+Setelah masuk ke direktori proyek, jalankan perintah berikut untuk menginstal semua dependensi PHP yang diperlukan:
+
+bash
+Salin kode
+composer install
+Perintah ini akan membaca file composer.json di proyek Anda dan menginstal semua paket yang didefinisikan di dalamnya.
+
+Salin File .env:
+
+Duplikat file .env.example dan beri nama .env. Ini adalah file konfigurasi lingkungan untuk proyek Laravel. Anda dapat menyalinnya dengan perintah:
+
+bash
+Salin kode
+cp .env.example .env
+Generate Key Aplikasi:
+
+Setiap aplikasi Laravel membutuhkan kunci aplikasi unik. Jalankan perintah berikut untuk menghasilkan kunci aplikasi yang baru:
+
+bash
+Salin kode
+php artisan key:generate
+Konfigurasi Database (opsional):
+
+Jika proyek Laravel memerlukan koneksi ke database, pastikan untuk mengkonfigurasi file .env dengan detail database yang sesuai (nama database, pengguna, kata sandi).
+
+Jalankan Migrasi Database dan Seeder (opsional):
+
+Jika proyek Laravel menggunakan migrasi dan seeder, jalankan perintah berikut untuk membuat skema database dan mengisi data awal (opsional):
+
+bash
+Salin kode
+php artisan migrate --seed
+Jalankan Server Pembangun Lokal:
+
+Terakhir, jalankan server pengembangan lokal dengan perintah:
+
+bash
+Salin kode
+php artisan serve
+Server akan berjalan di http://localhost:8000 secara default. Buka URL ini di browser untuk melihat proyek Laravel Anda.
