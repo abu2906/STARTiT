@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('main-content')
-    @if(isset($user))
     <div class="table-data">
         <div class="todo">
             <div class="detail">
@@ -9,11 +8,11 @@
 				<img id="mainProfileImage" src="https://via.placeholder.com/150" alt="Profile">
                     <div class="info">
                         <div class="nama">
-                            <span><strong>{{ $user->username }}</strong></span>
+                            <span><strong>@username</strong></span>
                             <button onclick="openEditModal('profileModal')" style="cursor:pointer;">Edit Profile</button>
                         </div>
                         <div><i class="fa-solid fa-location-dot"></i><span style="margin-left:11px">Jakarta</span></div>
-                        <div><i class="fa-solid fa-envelope"></i><span style="margin-left:8px">{{ $user->email }}</span></div>
+                        <div><i class="fa-solid fa-envelope"></i><span style="margin-left:8px">@email</span></div>
                     </div>
                 </div>
                 <div class="rating">
@@ -32,7 +31,7 @@
                 <li>
                     <span class="text">
                         <h3>Total Pesanan</h3>
-                        <p>Blablabla</p>
+                        <p>10</p>
                     </span>
                 </li>
             </ul>
@@ -61,7 +60,6 @@
             <button class="save-button" onclick="saveProfile()">SIMPAN</button>
         </div>
     </div>
-    @endif
 
     <script>
 		let selectedImageDataUrl = '';

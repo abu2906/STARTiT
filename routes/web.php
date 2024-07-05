@@ -52,8 +52,10 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
 Route::get('/penyewa/home', [HomeController::class,'HomePenyewa'])->name('penyewa-home');
 Route::get('/pekerja/home', [HomeController::class,'HomePekerja'])->name('pekerja-home');
-Route::get('/pekerja/tambahPekerja', [PekerjaController::class,'TambahKerja'])->name('pekerja-tambah');
-Route::get('/penyewa/profile',[HomeController::class,'showProfile'])->name('penyewa-profile');
-Route::get('/pekerja/profile',[HomeController::class,'showProfile'])->name('penyewa-profile');
+Route::get('/penyewa/profile',[HomeController::class,'penyewaProfile'])->name('penyewa-profile');
+Route::get('/pekerja/profile',[HomeController::class,'showProfile'])->name('pekerja-profile');
+
+Route::get('/pekerja/tambahPekerja', [PekerjaController::class,'index'])->name('pekerja-tambah');
+Route::delete('/delete-job/{id}', [PekerjaController::class, 'destroy'])->name('jobs.destroy');
 
 Route::get('/admin/dahsboard', [HomeController::class,'AdminDashboard'])->name('admin-dashboard');

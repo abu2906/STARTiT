@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('main-content')
-	@if(isset($user))
 	<div class="table-data">
 		<div class="todo">
 			<div class="detail">
@@ -9,14 +8,14 @@
 					<img src="{{ asset('img/profile.png') }}">
 					<div class="info">
 						<div class="nama">
-							<span><strong>{{ $user->username }}</strong></span>
+							<span><strong>@username</strong></span>
 							<a href="">
 								<i class="fa-solid fa-pencil"></i>
 							</a>
 						</div>
 						<i class="fa-solid fa-location-dot"></i>
 						<span>Jakarta</span>
-						<p>{{ $user->email }}</p>
+						<p>username@gmail.com</p>
 					</div>
 				</div>
 				<div class="rating">
@@ -35,7 +34,7 @@
 				<li>
 					<span class="text">
 						<h3>Earned</h3>
-						<p>Blablabla</p>
+						<p>$12</p>
 					</span>
 				</li>
 				<li>
@@ -57,5 +56,4 @@
 			</div>
 		</div>
 	</div>
-	@endif
 @endsection

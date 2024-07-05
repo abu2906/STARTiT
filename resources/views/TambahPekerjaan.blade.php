@@ -14,54 +14,26 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($jobs as $job)
                 <tr>
-                    <td>Buruh</td>
-                    <td>Deskripsi</td>
+                    <td>{{ $job->job_title }}</td>
+                    <td>{{ $job->job_description }}</td>
                     <td>
-                        <a href="" class="editPekerjaBtn">
+                        <a href="" data-job-id="{{ $job->id }}" class="editPekerjaBtn">
                             <i class="fa-solid fa-pencil"></i>
                         </a>
                     </td>
                     <td>
-                        <i class="fa-solid fa-trash"></i>
+                        <form action="{{ route('jobs.destroy', ['id' => $job->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="deletePekerjaBtn">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
-                <tr>
-                    <td>ART</td>
-                    <td>Deskripsi</td>
-                    <td>
-                        <a href="" class="editPekerjaBtn">
-                            <i class="fa-solid fa-pencil"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <i class="fa-solid fa-trash"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Buruh</td>
-                    <td>Deskripsi</td>
-                    <td>
-                        <a href="" class="editPekerjaBtn">
-                            <i class="fa-solid fa-pencil"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <i class="fa-solid fa-trash"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Buruh</td>
-                    <td>Deskripsi</td>
-                    <td>
-                        <a href="" class="editPekerjaBtn">
-                            <i class="fa-solid fa-pencil"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <i class="fa-solid fa-trash"></i>
-                    </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
@@ -100,7 +72,8 @@
 </div>
 
 <!-- Modal -->
-<form id="editJobModal">
+<form action="{{ route('jobs.update', ['id' => $job->id]) }}" method="POST" id="editJobModal">
+    @csrf
     <div class="form-group">
         <label for="job_title">Pekerjaan:</label>
         <input type="text" id="job_title" name="job_title" required>

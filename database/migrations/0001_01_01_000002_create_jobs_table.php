@@ -13,34 +13,29 @@ return new class extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->string('idPekerja');
+            $table->string('idPekerja')->constrained('users')->onDelete('cascade');
             $table->string('kategori');
             $table->string('deskripsi');
             $table->integer('harga');
-            $table->unsignedInteger('created_at');
-        });
+            $table->timestamps();
+        });   
 
-        Schema::create('job_batches', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('name');
-            $table->integer('total_jobs');
-            $table->integer('pending_jobs');
-            $table->integer('failed_jobs');
-            $table->longText('failed_job_ids');
-            $table->mediumText('options')->nullable();
-            $table->integer('cancelled_at')->nullable();
-            $table->integer('created_at');
-            $table->integer('finished_at')->nullable();
-        });
-
-        Schema::create('failed_jobs', function (Blueprint $table) {
+        Schema::create('orders_jobs', function (Blueprint $table) {
             $table->id();
-            $table->string('uuid')->unique();
-            $table->text('connection');
-            $table->text('queue');
-            $table->longText('payload');
-            $table->longText('exception');
-            $table->timestamp('failed_at')->useCurrent();
+            $table->foreignId('job_id')->constrained('jobs')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->date('order_date');
+            $table->enum('status', ['pending', 'completed', 'cancelled']);
+            $table->timestamps();
+        });
+
+        Schema::create('reviews', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('order_id')->constrained('orders_jobs')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->integer('rating')->unsigned()->comment('Rating between 1 to 5');
+            $table->text('review');
+            $table->timestamps();
         });
     }
 
@@ -50,7 +45,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('jobs');
-        Schema::dropIfExists('job_batches');
-        Schema::dropIfExists('failed_jobs');
+        Schema::dropIfExists('orders_jobs');
+        Schema::dropIfExists('reviews');
     }
 };

@@ -23,8 +23,11 @@ class HomeController extends Controller
         return view('Dashboard');
     }
 
+    public function penyewaProfile(){
+        return view('Profile.penyewa_profile');
+    }
+
     public function showProfile(){
-        $user = auth()->user();
-        return view('Profile.penyewa_profile',compact('user'));
+        return view('Profile.pekerja_profile');
     }
 }
