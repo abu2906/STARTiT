@@ -65,67 +65,62 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-Untuk menjalankan proyek Laravel setelah melakukan cloning dari GitHub, berikut langkah-langkahnya:
+Tutorial: Menjalankan Proyek Laravel dari GitHub
+Tutorial ini akan memandu Anda untuk menjalankan proyek Laravel setelah mengkloning repositori dari GitHub.
 
-Prasyarat
-Pastikan Anda telah menginstal Composer: Composer digunakan untuk mengelola dependensi PHP, termasuk Laravel. Pastikan Composer terinstal di komputer Anda. Anda bisa mengunduhnya dan menginstalnya dari getcomposer.org.
+Langkah-langkah
+1. Persiapan Awal
+Pastikan komputer Anda telah terpasang dengan:
 
-Pastikan telah menginstal PHP: Laravel memerlukan PHP diinstal di komputer Anda. Pastikan versi PHP yang Anda gunakan sesuai dengan persyaratan Laravel.
-
-Langkah-langkah untuk Menjalankan Proyek Laravel
-Clone Repository dari GitHub:
-
-bash
-Salin kode
-git clone <URL_repository_github>
-Ganti <URL_repository_github> dengan URL repository GitHub yang ingin Anda clone.
-
-Masuk ke Direktori Proyek:
+Composer: Untuk mengelola dependencies PHP.
+PHP: Versi yang disarankan oleh Laravel.
+Laravel Installer: Terinstall secara global untuk mempermudah pembuatan proyek Laravel baru.
+2. Clone Repositori
+Clone repositori dari GitHub menggunakan perintah Git berikut:
 
 bash
 Salin kode
-cd <nama_folder_proyek>
-Ganti <nama_folder_proyek> dengan nama folder hasil dari proses cloning.
+git clone <URL_REPOSITORI>
+Ganti <URL_REPOSITORI> dengan URL repositori yang ingin Anda clone.
 
-Instal Dependensi menggunakan Composer:
-
-Setelah masuk ke direktori proyek, jalankan perintah berikut untuk menginstal semua dependensi PHP yang diperlukan:
+3. Konfigurasi Proyek
+Masuk ke direktori proyek yang baru di-clone:
 
 bash
 Salin kode
-composer install
-Perintah ini akan membaca file composer.json di proyek Anda dan menginstal semua paket yang didefinisikan di dalamnya.
-
-Salin File .env:
-
-Duplikat file .env.example dan beri nama .env. Ini adalah file konfigurasi lingkungan untuk proyek Laravel. Anda dapat menyalinnya dengan perintah:
+cd nama-proyek
+Salin file .env.example menjadi .env:
 
 bash
 Salin kode
 cp .env.example .env
-Generate Key Aplikasi:
-
-Setiap aplikasi Laravel membutuhkan kunci aplikasi unik. Jalankan perintah berikut untuk menghasilkan kunci aplikasi yang baru:
+Generate key aplikasi Laravel:
 
 bash
 Salin kode
 php artisan key:generate
-Konfigurasi Database (opsional):
-
-Jika proyek Laravel memerlukan koneksi ke database, pastikan untuk mengkonfigurasi file .env dengan detail database yang sesuai (nama database, pengguna, kata sandi).
-
-Jalankan Migrasi Database dan Seeder (opsional):
-
-Jika proyek Laravel menggunakan migrasi dan seeder, jalankan perintah berikut untuk membuat skema database dan mengisi data awal (opsional):
+4. Install Dependencies
+Install semua dependencies PHP menggunakan Composer:
 
 bash
 Salin kode
-php artisan migrate --seed
-Jalankan Server Pembangun Lokal:
+composer install
+5. Migrasi Database
+Pastikan database sudah terkonfigurasi di file .env, kemudian jalankan migrasi database:
 
-Terakhir, jalankan server pengembangan lokal dengan perintah:
+bash
+Salin kode
+php artisan migrate
+6. Jalankan Server Pengembangan
+Terakhir, jalankan server pengembangan Laravel:
 
 bash
 Salin kode
 php artisan serve
-Server akan berjalan di http://localhost:8000 secara default. Buka URL ini di browser untuk melihat proyek Laravel Anda.
+Server akan berjalan di http://localhost:8000 secara default.
+
+7. Akses Proyek
+Buka browser dan akses http://localhost:8000 untuk melihat proyek Laravel Anda.
+
+Kesimpulan
+Sekarang Anda telah berhasil menjalankan proyek Laravel dari GitHub. Pastikan untuk mengikuti langkah-langkah dengan teliti dan memperbaiki masalah apabila diperlukan.
