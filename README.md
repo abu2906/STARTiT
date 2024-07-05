@@ -64,3 +64,63 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+Tutorial: Menjalankan Proyek Laravel dari GitHub
+Tutorial ini akan memandu Anda untuk menjalankan proyek Laravel setelah mengkloning repositori dari GitHub.
+
+Langkah-langkah
+1. Persiapan Awal
+Pastikan komputer Anda telah terpasang dengan:
+
+Composer: Untuk mengelola dependencies PHP.
+PHP: Versi yang disarankan oleh Laravel.
+Laravel Installer: Terinstall secara global untuk mempermudah pembuatan proyek Laravel baru.
+2. Clone Repositori
+Clone repositori dari GitHub menggunakan perintah Git berikut:
+
+bash
+Salin kode
+git clone <URL_REPOSITORI>
+Ganti <URL_REPOSITORI> dengan URL repositori yang ingin Anda clone.
+
+3. Konfigurasi Proyek
+Masuk ke direktori proyek yang baru di-clone:
+
+bash
+Salin kode
+cd nama-proyek
+Salin file .env.example menjadi .env:
+
+bash
+Salin kode
+cp .env.example .env
+Generate key aplikasi Laravel:
+
+bash
+Salin kode
+php artisan key:generate
+4. Install Dependencies
+Install semua dependencies PHP menggunakan Composer:
+
+bash
+Salin kode
+composer install
+5. Migrasi Database
+Pastikan database sudah terkonfigurasi di file .env, kemudian jalankan migrasi database:
+
+bash
+Salin kode
+php artisan migrate
+6. Jalankan Server Pengembangan
+Terakhir, jalankan server pengembangan Laravel:
+
+bash
+Salin kode
+php artisan serve
+Server akan berjalan di http://localhost:8000 secara default.
+
+7. Akses Proyek
+Buka browser dan akses http://localhost:8000 untuk melihat proyek Laravel Anda.
+
+Kesimpulan
+Sekarang Anda telah berhasil menjalankan proyek Laravel dari GitHub. Pastikan untuk mengikuti langkah-langkah dengan teliti dan memperbaiki masalah apabila diperlukan.

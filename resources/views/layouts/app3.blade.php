@@ -19,7 +19,7 @@
             </a>
             <ul class="side-menu top">
                 <li id="button-dashboard" class="{{ Request::is('home2') ? 'active' : '' }}">
-                    <a href="{{ url('/home') }}">
+                    <a href="{{ route('pekerja-home') }}">
                         <i class='bx bxs-dashboard' ></i>
                         <span class="text">Home</span>
                     </a>
@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li id="button-logout">
-                    <a href="logout.php" class="logout">
+                    <a href="{{ route('logout') }}" class="logout">
                         <i class='bx bxs-log-out-circle' ></i>
                         <span class="text">Logout</span>
                     </a>
@@ -108,7 +108,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ url('/profile') }}" class="profile {{ Request::is('profile') ? 'active' : '' }}" id="button-profile">
+                <a href="{{ route('pekerja-profile') }}" class="profile {{ Request::is('profile') ? 'active' : '' }}" id="button-profile">
                     <img src="img/profile.png">
                 </a>
             </nav>

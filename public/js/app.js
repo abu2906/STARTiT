@@ -115,5 +115,5 @@ document.addEventListener('DOMContentLoaded', function() {
         // Menambahkan kelas 'active' pada tab dan konten yang dipilih
         tabs[index].classList.add('active');
         contents[index].classList.add('active');
-    }    
+    }  
 });
