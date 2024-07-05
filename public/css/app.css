@@ -1128,11 +1128,11 @@ body {
 }
 
 #content main .job-add-form .form-group input[type="text"],
-#content main #editJobModal .form-group input[type="text"],
+#content main .editJobModal .form-group input[type="text"],
 #content main .job-add-form .form-group textarea,
-#content main #editJobModal .form-group textarea,
+#content main .editJobModal .form-group textarea,
 #content main .job-add-form .form-group select,
-#content main #editJobModal .form-group select {
+#content main .editJobModal .form-group select {
     width: 100%;
     padding: 8px;
     border: 1px solid var(--grey);
@@ -1163,7 +1163,7 @@ body {
 /* TAMBAH PEKERJAAN */
 
 /* POPUP EDIT */
-#content main #editJobModal
+#content main .editJobModal
 {
 	position: absolute;
     top: 50%;
@@ -1180,7 +1180,7 @@ body {
 	border: 2px solid var(--dark);
 }
 
-#content main #editJobModal button {
+#content main .editJobModal button {
     padding: 10px 20px;
     margin-top: 10px;
     color: var(--light);
@@ -1190,11 +1190,11 @@ body {
     cursor: pointer;
 }
 
-#content main #editJobModal button[type="button"] {
+#content main .editJobModal button[type="button"] {
     background-color: var(--red);
 }
 
-#content main #editJobModal button:hover {
+#content main .editJobModal button:hover {
     opacity: 0.9;
 }
 /* POPUP EDIT */

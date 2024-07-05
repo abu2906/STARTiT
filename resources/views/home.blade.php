@@ -2,67 +2,25 @@
 
 @section('main-content')       
 <div class="job-listings">
-	<div class="job-listing">
-		<img src="{{ asset('img/art.jpeg') }}" alt="">
-		<div class="job-title">
-			<div class="profile-container">
-				<img src="{{ asset('img/profile.png') }}" alt="Profile">
-				<p>@username</p>
-			</div>
-			<div class="rating">
-				<i class="fa-solid fa-star"></i>
-				<span>4.5/5</span>
-			</div>
-		</div>
-		<p>Deskripsi pekerjaan</p>
-		<button class="apply-btn" onclick="showModal('home-modal')">Detail</button>
-	</div>
-	<div class="job-listing">
-		<img src="{{ asset('img/penjahit.jpeg') }}" alt="">
-		<div class="job-title">
-			<div class="profile-container">
-				<img src="{{ asset('img/profile.png') }}" alt="Profile">
-				<p>@username</p>
-			</div>
-			<div class="rating">
-				<i class="fa-solid fa-star"></i>
-				<span>4.5/5</span>
-			</div>
-		</div>
-		<p>Deskripsi pekerjaan</p>
-		<button class="apply-btn">Detail</button>
-	</div>
-	<div class="job-listing">
-		<img src="{{ asset('img/buruh.jpeg') }}" alt="">
-		<div class="job-title">
-			<div class="profile-container">
-				<img src="{{ asset('img/profile.png') }}" alt="Profile">
-				<p>@username</p>
-			</div>
-			<div class="rating">
-				<i class="fa-solid fa-star"></i>
-				<span>4.5/5</span>
-			</div>
-		</div>
-		<p>Deskripsi pekerjaan</p>
-		<button class="apply-btn">Detail</button>
-	</div>
-	<div class="job-listing">
-		<img src="{{ asset('img/babysitter.jpeg') }}" alt="">
-		<div class="job-title">
-			<div class="profile-container">
-				<img src="{{ asset('img/profile.png') }}" alt="Profile">
-				<p>@username</p>
-			</div>
-			<div class="rating">
-				<i class="fa-solid fa-star"></i>
-				<span>4.5/5</span>
-			</div>
-		</div>
-		<p>Deskripsi pekerjaan</p>
-		<button class="apply-btn" >Detail</button>
-	</div>
+    @foreach ($jobs as $job)
+    <div class="job-listing">
+        <img src="{{ asset('img/art.jpeg') }}" alt="">
+        <div class="job-title">
+            <div class="profile-container">
+                <img src="{{ asset('img/profile.png') }}" alt="Profile">
+                <p>{{ $job->username }}</p> <!-- Menggunakan contoh atribut, sesuaikan dengan atribut yang benar -->
+            </div>
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <span>4.5/5</span>
+            </div>
+        </div>
+        <p>{{ $job->deskripsi }}</p> <!-- Menggunakan contoh atribut, sesuaikan dengan atribut yang benar -->
+        <button class="apply-btn" onclick="showModal('home-modal')">Detail</button>
+    </div>
+    @endforeach
 </div>
+
 <!-- Home Modal -->
 <div id="home-modal" class="modal">
     <div class="modal-content" style="width:50%">

@@ -13,25 +13,25 @@
     <body>
         <!-- SIDEBAR -->
 		<section id="sidebar">
-            <a href="{{ route('penyewa-home') }}" class="brand">
+            <a href="{{ route('home') }}" class="brand">
                 <i class='bx bxs-laugh'></i>
                 <span class="text">STARTiT</span>
             </a>
             <ul class="side-menu top">
                 <li id="button-dashboard" class="{{ Request::is('home') ? 'active' : '' }}">
-                    <a href="{{ route('penyewa-home') }}">
+                    <a href="{{ route('home') }}">
                         <i class='bx bxs-dashboard' ></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
                 <li id="button-poin" class="{{ Request::is('awards') ? 'active' : '' }}">
-                    <a href="{{ url('/awards') }}">
+                    <a href="{{ route('awards') }}">
                         <i class='bx bx-trending-up' ></i>
                         <span class="text">Awards</span>
                     </a>
                 </li>
                 <li id="button-ulasan" class="{{ Request::is('ulasan') ? 'active' : '' }}">
-                    <a href="{{ url('/ulasan') }}">
+                    <a href="{{ route('review') }}">
                         <i class='bx bx-message' ></i>
                         <span class="text">Rating</span>
                     </a>
@@ -39,7 +39,7 @@
             </ul>
             <ul class="side-menu top">
                 <li id="button-setting" class="{{ Request::is('settings') ? 'active' : '' }}">
-                    <a href="{{ url('/setting') }}">
+                    <a href="{{ route('setting') }}">
                         <i class='bx bxs-cog' ></i>
                         <span class="text">Settings</span>
                     </a>
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ route('penyewa-profile') }}" class="profile {{ Request::is('penyewa-profile') ? 'active' : '' }}" id="button-profile">
+                <a href="{{ route('profile') }}" class="profile {{ Request::is('profile') ? 'active' : '' }}" id="button-profile">
                     <img src="img/profile.png">
                 </a>
             </nav>

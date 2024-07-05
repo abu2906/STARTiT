@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="signin-signup {{ $errors->any() ? 'sign-up-mode' : '' }} ">
+        <div class="signin-signup {{ $errors->any() ? 'sign-up-mode' : '' }}">
             <form method="POST" action="{{ route('login-proces') }}" class="signin">
                 @csrf
                 <h2 class="title">Sign in</h2>
@@ -24,22 +24,18 @@
                 @enderror
                 <div class="input-field">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="text" name="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password">
                 </div>
                 @error('password')
                     <small>Masukkan Password Terlebih Dahulu</small>
                 @enderror
-                <!-- <div class="remember-forgot">
-                    <label><input type="checkbox">Remember me</label>
-                    <a href="#">Forgot password?</a>
-                </div> -->
                 <input type="submit" value="Login" class="btn">
                 <p class="choice">Or Sign in with</p>
                 <div class="social-media">
-                    <a href="" class="icon">
+                    <a href="#" class="icon">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
-                    <a href="" class="icon">
+                    <a href="#" class="icon">
                         <i class="fa-brands fa-google"></i>
                     </a>
                 </div>
@@ -56,7 +52,7 @@
                 </div>
                 <div class="input-field">
                     <i class="fa-solid fa-envelope"></i>
-                    <input name="email" type="text" placeholder="Email">
+                    <input name="email" type="email" placeholder="Email">
                     @error('email')
                         <small>Masukkan email Terlebih Dahulu</small>
                     @enderror
@@ -70,22 +66,11 @@
                 </div>
                 <div class="input-field">
                     <i class="fa-solid fa-lock"></i>
-                    <input name="password" type="text" placeholder="Password">
+                    <input name="password" type="password" placeholder="Password">
                     @error('password')
                         <small>Masukkan password Terlebih Dahulu</small>
                     @enderror
                 </div>
-                <div class="input-field">
-                    <!-- <i class="fa-solid fa-lock"></i> -->
-                    <select name="tipePengguna" id="option" class="input-field">
-                        <option value="penyewa">Penyewa</option>
-                        <option value="pekerja">Pekerja</option>
-                    </select>               
-                    @error('option')
-                        <small>Masukkan password Terlebih Dahulu</small>
-                    @enderror
-                </div>
-
                 <input type="submit" value="Sign up" class="btn">
             </form>
         </div>
@@ -107,7 +92,6 @@
         </div>
     </div>
     <script>
-
         const sign_in = document.querySelector("#sign-in");
         const sign_up = document.querySelector("#sign-up");
         const container = document.querySelector(".container");
@@ -120,7 +104,6 @@
         })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
     @if($message = Session::get('failed'))
         <script>
             Swal.fire({

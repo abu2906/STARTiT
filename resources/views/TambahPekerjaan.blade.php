@@ -7,61 +7,67 @@
         <table>
             <thead>
                 <tr>
-                    <th>Pekerjaan</th>
+                    <th>Kategori</th>
                     <th>Deskripsi</th>
+                    <th>Harga</th>
                     <th>Edit</th>
                     <th>Hapus</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($jobs as $job)
                 <tr>
-                    <td>Buruh</td>
-                    <td>Deskripsi</td>
+                    <td>{{ $job->kategori }}</td>
+                    <td>{{ $job->deskripsi }}</td>
+                    <td>{{ $job->harga }}</td>
                     <td>
-                        <a href="" class="editPekerjaBtn">
+                        <a href="javascript:void(0);" data-job-id="{{ $job->id }}" class="editPekerjaBtn" onclick="openEditModal({{ $job->id }})">
                             <i class="fa-solid fa-pencil"></i>
                         </a>
                     </td>
                     <td>
-                        <i class="fa-solid fa-trash"></i>
+                        <form action="{{ route('jobs.destroy', ['id' => $job->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="deletePekerjaBtn">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
-                <tr>
-                    <td>ART</td>
-                    <td>Deskripsi</td>
-                    <td>
-                        <a href="" class="editPekerjaBtn">
-                            <i class="fa-solid fa-pencil"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <i class="fa-solid fa-trash"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Buruh</td>
-                    <td>Deskripsi</td>
-                    <td>
-                        <a href="" class="editPekerjaBtn">
-                            <i class="fa-solid fa-pencil"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <i class="fa-solid fa-trash"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Buruh</td>
-                    <td>Deskripsi</td>
-                    <td>
-                        <a href="" class="editPekerjaBtn">
-                            <i class="fa-solid fa-pencil"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <i class="fa-solid fa-trash"></i>
-                    </td>
-                </tr>
+
+                <!-- Modal -->
+                <div class="editJobModal" id="editJobModal-{{ $job->id }}" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeEditModal({{ $job->id }})">&times;</span>
+                        <form action="{{ route('jobs.update', ['id' => $job->id]) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <div class="form-group">
+                                <label for="kategori">Kategori:</label>
+                                <select id="kategori" name="kategori">
+                                    <option value="Buruh" {{ $job->kategori }}>Buruh</option>
+                                    <option value="Petani" {{ $job->kategori}}>Petani</option>
+                                    <option value="Penjahit" {{ $job->kategori}}>Penjahit</option>
+                                    <option value="ART" {{ $job->kategori}}>Asisten Rumah Tangga</option>
+                                    <option value="Buruh Cuci" {{ $job->kategori}}>Buruh Cuci</option>
+                                    <option value="Babysitter" {{ $job->kategori}}>Babysitter</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="deskripsi">Deskripsi Pekerjaan:</label>
+                                <textarea id="deskripsi" name="deskripsi" required>{{ $job->deskripsi }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="harga">Harga:</label>
+                                <input type="text" id="harga" name="harga" value="{{ $job->harga }}" required>
+                            </div>
+                            <button type="submit">Update Pekerjaan</button>
+                            <button type="button" onclick="closeEditModal({{ $job->id }})">Tutup</button>
+                        </form>
+                    </div>
+                </div>
+                @endforeach
             </tbody>
         </table>
     </div>
@@ -69,65 +75,39 @@
 
     <div class="job-add-form">
         <h2>Tambah Pekerjaan Baru</h2>
-        <form action="{{ url('/add-job') }}" method="POST">
+        <form action="{{ route('tambah-pekerjaan') }}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="job_title">Judul Pekerjaan:</label>
-                <input type="text" id="job_title" name="job_title" required>
-            </div>
-            <div class="form-group">
-                <label for="job_description">Deskripsi Pekerjaan:</label>
-                <textarea id="job_description" name="job_description" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="job_category">Kategori:</label>
-                <select id="job_category" name="job_category">
-                    <option value="Teknologi">Buruh</option>
-                    <option value="Pendidikan">Petani</option>
-                    <option value="Kesehatan">Penjahit</option>
-                    <option value="Kesehatan">Asisten Rumah Tangga</option>
-                    <option value="Kesehatan">Buruh Cuci</option>
-                    <option value="Kesehatan">Babysitter</option>
+                <label for="kategori">Kategori:</label>
+                <select id="kategori" name="kategori">
+                    <option value="Buruh">Buruh</option>
+                    <option value="Petani">Petani</option>
+                    <option value="Penjahit">Penjahit</option>
+                    <option value="ART">Asisten Rumah Tangga</option>
+                    <option value="Buruh Cuci">Buruh Cuci</option>
+                    <option value="Babysitter">Babysitter</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="job_location">Lokasi:</label>
-                <input type="text" id="job_location" name="job_location" required>
+                <label for="deskripsi">Deskripsi Pekerjaan:</label>
+                <textarea id="deskripsi" name="deskripsi" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="harga">Harga:</label>
+                <input type="text" id="harga" name="harga" required>
             </div>
             <button type="submit" class="btn-submit">Tambah Pekerjaan</button>
         </form>
     </div>
 </div>
 
-<!-- Modal -->
-<form id="editJobModal">
-    <div class="form-group">
-        <label for="job_title">Pekerjaan:</label>
-        <input type="text" id="job_title" name="job_title" required>
-    </div>
-    <div class="form-group">
-        <label for="job_description">Deskripsi Pekerjaan:</label>
-        <textarea id="job_description" name="job_description" required></textarea>
-    </div>
-    <div class="form-group">
-        <label for="job_category">Kategori:</label>
-        <select id="job_category" name="job_category">
-            <option value="Teknologi">Buruh</option>
-            <option value="Pendidikan">Petani</option>
-            <option value="Kesehatan">Penjahit</option>
-            <option value="Kesehatan">Asisten Rumah Tangga</option>
-            <option value="Kesehatan">Buruh Cuci</option>
-            <option value="Kesehatan">Babysitter</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="job_location">Lokasi:</label>
-        <input type="text" id="job_location" name="job_location" required>
-    </div>
-    <button type="submit">Update Pekerjaan</button>
-    <button type="button" id="closeModalButton">Tutup</button>
-</form>
+<script>
+function openEditModal(id) {
+    document.getElementById('editJobModal-' + id).style.display = 'block';
+}
+
+function closeEditModal(id) {
+    document.getElementById('editJobModal-' + id).style.display = 'none';
+}
+</script>
 @endsection
-
-
-
