@@ -7,24 +7,14 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function HomePenyewa() {
-        return view('home');
+        return view('penyewaHome');
     }
 
     public function HomePekerja() {
-        return view('home2');
+        return view('pekerjaHome');
     }
-
-    // public function HomePekerja(){
-    //     $user = auth()->user();
-    //     return view('Profile.pekerja_profile',compact('user'));
-    // }
 
     public function AdminDashboard(){
         return view('Dashboard');
-    }
-
-    public function showProfile(){
-        $user = auth()->user();
-        return view('Profile.penyewa_profile',compact('user'));
     }
 }

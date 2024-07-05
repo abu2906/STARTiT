@@ -133,7 +133,7 @@
         
         <div class="button-container" style="margin-top:2rem;">
             <button id="close-rekrut-modal" onclick="closeModal('rekrut-modal')">Kembali</button>
-            <button>Konfirmasi</button>
+            <button onclick="closeModal('rekrut-modal')" >Konfirmasi</button>
         </div>
     </div>
 </div>
